@@ -1,7 +1,195 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dev Portfolio</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #121212;
+        }
+        header {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        h1, h2 {
+            color: #bb86fc;
+        }
+        .project {
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            background-color: #3700b3;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        a {
+            color: #03dac6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .gallery {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .gallery img.active {
+            opacity: 1;
+        }
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .gallery-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .contact-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .contact-icons a {
+            font-size: 24px;
+            color: #03dac6;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+    <header>
+        <h1>Alessandro Sciarra</h1>
+        <p>Gameplay Programmer</p>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome! I'm a gameplay programmer with 3 years of experience working with various types of software and languages, including C++, C#, Unity and  Unreal Engine. My main focus areas are AI and Physics but I am able to adapt to different kinds of tasks.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>RIDE 5</h3>
+                <p>Test description.</p>
+                <div class="gallery" id="gallery1">
+                    <img src="/api/placeholder/800/600" alt="Game Screenshot 1" class="active">
+                    <img src="/api/placeholder/800/600" alt="Game Screenshot 2">
+                    <img src="/api/placeholder/800/600" alt="Game Screenshot 3">
+                    <div class="gallery-nav">
+                        <button onclick="changeImage('gallery1', -1)"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeImage('gallery1', 1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <p><a href="https://store.steampowered.com/app/1650010/RIDE_5/?curator_clanid=36692524" target="_blank">View on Steam</a></p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill">Unity</span>
+                <span class="skill">Unreal Engine</span>
+                <span class="skill">C#</span>
+                <span class="skill">C++</span>
+                <span class="skill">Python</span>
+                <span class="skill">Version Control (Git)</span>
+            </div>
+        </section>
+
+        <section id="cv">
+            <h2>Curriculum Vitae</h2>
+            <p>Here's a brief overview of my professional experience and education:</p>
+            <h3>Experience</h3>
+            <ul>
+                <li>Regular Gameplay Programmer at Milestone Games (2023-Present)</li>
+                <li>Junior Gameplay Programmer at Milestone Games (2022-2023)</li>
+                <li>Game Programmer at StudioV (2019-2022)</li>
+            </ul>
+            <h3>Education</h3>
+            <ul>
+			    <li>Masters Degree  in CS - Computer Game Development - University of Verona (2020 - 2022)</li>
+                <li>BSc in Innovative Technologies for Digital Communication - Link Campus University (2017-2020)</li>
+            </ul>
+            <p><a href="#">Download Full CV (PDF)</a></p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me for collaboration or job opportunities:</p>
+            <div class="contact-icons">
+                <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function changeImage(galleryId, direction) {
+            const gallery = document.getElementById(galleryId);
+            const images = gallery.getElementsByTagName('img');
+            let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex + direction + images.length) % images.length;
+            images[activeIndex].classList.add('active');
+        }
+
+        // Automatic slideshow
+        setInterval(() => {
+            changeImage('gallery1', 1);
+            changeImage('gallery2', 1);
+        }, 3000); 
+    </script>
 </body>
 </html>
