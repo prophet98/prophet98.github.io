@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Game Developer Portfolio</title>
+    <title>Alessandro Sciarra - Game Developer Portfolio</title>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -136,6 +136,16 @@
             padding: 20px;
             background-color: var(--section-bg);
         }
+        .project-experience {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+        .project-experience h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </head>
@@ -143,18 +153,18 @@
     <div class="container">
         <header>
             <div class="profile-section">
-                <img src="/api/placeholder/200/200" alt="Your Name" class="profile-img">
+                <img src="/api/placeholder/200/200" alt="Alessandro Sciarra" class="profile-img">
                 <h1>Alessandro Sciarra</h1>
-                <p>GGameplay Programmer</p>
+                <p>Gameplay Programmer</p>
                 <div class="contact-icons">
-                <a href="mailto:ale.sciarra@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/prophet98" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/alessandro-sciarra/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
+                    <a href="mailto:ale.sciarra@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/prophet98" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/alessandro-sciarra/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="about-section">
                 <h2>About Me</h2>
-                 <p>Welcome! I'm a gameplay programmer with 3 years of experience working with various types of software and languages, including C++, C#, Unity and  Unreal Engine. My main focus areas are AI and Physics but I am able to adapt to different kinds of tasks.</p>
+                <p>Welcome! I'm a gameplay programmer with 3 years of experience working with various types of software and languages, including C++, C#, Unity and Unreal Engine. My main focus areas are AI and Physics but I am able to adapt to different kinds of tasks.</p>
             </div>
         </header>
 
@@ -164,21 +174,30 @@
                 <div class="project">
                     <h3>RIDE 5</h3>
                     <div class="gallery" id="gallery1">
-                        <img src="/api/placeholder/800/600" alt="Game Screenshot 1" class="active">
-                        <img src="/api/placeholder/800/600" alt="Game Screenshot 2">
-                        <img src="/api/placeholder/800/600" alt="Game Screenshot 3">
+                        <img src="/api/placeholder/800/600" alt="RIDE 5 Screenshot 1" class="active">
+                        <img src="/api/placeholder/800/600" alt="RIDE 5 Screenshot 2">
+                        <img src="/api/placeholder/800/600" alt="RIDE 5 Screenshot 3">
                         <div class="gallery-nav">
                             <button onclick="changeImage('gallery1', -1)"><i class="fas fa-chevron-left"></i></button>
                             <button onclick="changeImage('gallery1', 1)"><i class="fas fa-chevron-right"></i></button>
                         </div>
                     </div>
-					<p>Test description.</p>
+                    <p>RIDE 5 is the latest installment in the motorcycle racing simulation series, offering players an immersive and realistic riding experience.</p>
                     <p><a href="https://store.steampowered.com/app/1650010/RIDE_5/?curator_clanid=36692524" target="_blank">View on Steam</a></p>
+                    <div class="project-experience">
+                        <h4>Experience</h4>
+                        <ul>
+                            <li>Served as the gameplay supervisor, overseeing the entire gameplay development process</li>
+                            <li>Implemented an advanced AI system for real-time opponent behavior generation</li>
+                            <li>Collaborated closely with R&D teams to enhance physics simulation and AI decision-making</li>
+                            <li>Optimized performance to ensure smooth gameplay across various platforms</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
             <section id="experience">
-                <h2>Experience</h2>
+                <h2>Professional Experience</h2>
                 <div class="project">
                     <h3>Regular Gameplay Programmer at Milestone Games</h3>
                     <p>2023 - Present</p>
@@ -193,15 +212,15 @@
             <section id="education">
                 <h2>Education</h2>
                 <div class="project">
-                    <h3>Masters Degree  in CS - Computer Game Development</h3>
-                    <p>University of Verona, 2020 - 2022 <</p>
+                    <h3>Masters Degree in CS - Computer Game Development</h3>
+                    <p>University of Verona, 2020 - 2022</p>
                     <ul>
                         <li>Graduated with honors</li>
                     </ul>
                 </div>
             </section>
-			
-			<section id="skills">
+            
+            <section id="skills">
                 <h2>Skills</h2>
                 <div class="skills">
                     <span class="skill">Unity</span>
@@ -212,10 +231,9 @@
                     <span class="skill">Version Control (Git)</span>
                 </div>
             </section>
-			
         </main>
         <footer>
-            <p>&copy; 2024 Alessandro Sciarra.</p>
+            <p>&copy; 2024 Alessandro Sciarra. All rights reserved.</p>
         </footer>
     </div>
 
@@ -233,7 +251,6 @@
         // Automatic slideshow
         setInterval(() => {
             changeImage('gallery1', 1);
-            changeImage('gallery2', 1);
         }, 5000); // Change image every 5 seconds
     </script>
 </body>
