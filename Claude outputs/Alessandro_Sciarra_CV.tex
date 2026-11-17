@@ -1,0 +1,190 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[
+    top=1.25cm,
+    bottom=1.25cm,
+    left=1.65cm,
+    right=1.65cm
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\usepackage{charter}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage[
+    hidelinks,
+    pdfauthor={Alessandro Sciarra},
+    pdftitle={Alessandro Sciarra -- Gameplay Programmer}
+]{hyperref}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedright
+\setcounter{secnumdepth}{0}
+
+\titleformat{\section}
+    {\large\bfseries}
+    {}
+    {0pt}
+    {}
+    [\titlerule]
+
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{
+    leftmargin=12pt,
+    topsep=2pt,
+    itemsep=2pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+\newcommand{\role}[3]{
+    \needspace{4\baselineskip}
+    \textbf{#1} --- #2\par
+    {\small #3}\par
+}
+
+\begin{document}
+
+{\fontsize{23}{26}\selectfont\textbf{Alessandro Sciarra}}\par
+\vspace{3pt}
+
+{\large Gameplay Programmer | C++ | Unreal Engine}\par
+\vspace{4pt}
+
+{\small
+    Rome, Italy
+    \enspace|\enspace
+    \href{mailto:ale.sciarra@gmail.com}{ale.sciarra@gmail.com}
+    \enspace|\enspace
+    +39 3332890835\par
+    \href{https://www.linkedin.com/in/alessandro-sciarra/}
+         {linkedin.com/in/alessandro-sciarra}
+    \enspace|\enspace
+    \href{https://prophet98.github.io/}{prophet98.github.io}
+}\par
+
+\section{Summary}
+
+Gameplay Programmer with 5+ years of professional game-development
+experience, focused on C++, Unreal Engine and vehicle AI.
+Developed Screamer gameplay systems from pre-production through launch,
+including the Heat System and skills. Experience with neural AI training
+alongside designers, Chaos collision callbacks, multithreading and
+cross-platform debugging.
+
+\section{Technical Skills}
+
+\textbf{Languages:} C++, C\#, Python\par
+
+\textbf{Engines / Middleware:}
+Unreal Engine 4/5, Chaos Physics, Unity, Wwise\par
+
+\textbf{Systems:}
+Gameplay systems, vehicle AI, asynchronous processing,
+mutex synchronization, physics interactions, CPU/GPU profiling,
+crash debugging\par
+
+\textbf{Tools:}
+Visual Studio, Rider, Visual Assist, Razor profiling tools,
+Xbox GDK, PS5 SDK, Perforce, Git, Atlassian\par
+
+\section{Experience}
+
+\role{Gameplay Programmer}
+     {Milestone, Milan, Italy}
+     {Apr 2024 -- Present}
+
+\begin{itemize}
+    \item Work on two unannounced Unreal Engine 5 titles built on
+    major licensed IPs (one Hasbro property, one open-world game),
+    designing AI control systems and Chaos-based interactions
+    with R\&D on vehicle control and input handling.
+
+    \item Developed Screamer's core Heat System and skills,
+    alongside vehicle-interaction mechanics,
+    from pre-production through launch.
+
+    \item Contributed to Screamer's neural vehicle AI system
+    and collaborated with designers on AI training.
+
+    \item Implemented asynchronous race-time calculations
+    with mutex-based synchronization.
+
+    \item Modified Chaos collision callbacks for Screamer
+    to improve the responsiveness and performance
+    of collision-driven gameplay.
+
+    \item Resolved crashes in the physics system and during
+    level transitions; profile and debug CPU/GPU bottlenecks
+    and platform-specific issues across PC, PS5,
+    Xbox Series X|S and Nintendo Switch.
+
+    \item Build gameplay utilities and debugging tools
+    to support testing and iteration.
+\end{itemize}
+
+\vspace{3pt}
+
+\role{Junior Gameplay Programmer}
+     {Milestone, Milan, Italy}
+     {Jun 2022 -- Apr 2024}
+
+\begin{itemize}
+    \item Contributed to RIDE 5 gameplay, custom collision/physics
+    logic, AI behavior, cameras and post-launch support.
+
+    \item Implemented multithreaded AI-related workloads,
+    real-time telemetry/UI and dynamic-weather gameplay integration.
+
+    \item Coordinated small gameplay workstreams, bug triage
+    and delivery of fixes and post-launch features.
+\end{itemize}
+
+\vspace{3pt}
+
+\role{Game Programmer Intern}
+     {Milestone, Milan, Italy}
+     {Dec 2021 -- May 2022}
+
+\begin{itemize}
+    \item Delivered bug fixes and feature support in a large
+    production codebase, contributing to Hot Wheels Unleashed
+    and RIDE 5 development.
+\end{itemize}
+
+\vspace{3pt}
+
+\role{Gameplay Programmer}
+     {Studio V, Rome, Italy}
+     {Aug 2019 -- Jan 2022}
+
+\begin{itemize}
+    \item Extended the Fungus and Spine Unity plugins in C\#
+    to improve designer workflows and 2D animation performance
+    in a distributed Italian-Japanese team.
+\end{itemize}
+
+\section{Additional Game Contributions}
+
+Hot Wheels Unleashed 2, MotoGP 25/26, Monster Jam Showdown.
+
+\section{Education}
+
+\textbf{University of Verona}
+--- Master's Degree in Computer Game Development\par
+{\small Nov 2020 -- May 2022}\par
+
+\vspace{3pt}
+
+\textbf{Link Campus University}
+--- BA in Innovative Technologies for Digital Communication\par
+{\small Sep 2017 -- Oct 2020}\par
+
+\end{document}
