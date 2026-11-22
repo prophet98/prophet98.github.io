@@ -183,38 +183,23 @@
     .planet {
       position: absolute;
       z-index: 0;
-      width: 600px;
-      height: 600px;
-      right: max(-140px, calc((100vw - 1120px) / 2 - 120px));
+      width: 300px;
+      height: 300px;
+      right: max(24px, calc((100vw - 1120px) / 2 + 24px));
       top: 50%;
-      transform: translateY(-46%);
-      opacity: 0.55;
-      filter: saturate(0.85);
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
-      mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+      transform: translateY(-42%);
       pointer-events: none;
       user-select: none;
     }
 
-    @media (max-width: 1000px) {
-      .planet { width: 440px; height: 440px; right: -170px; opacity: 0.3; }
+    @media (max-width: 1100px) {
+      .planet { width: 220px; height: 220px; }
     }
 
-
-    .avail {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 14px;
-      color: var(--sage2);
-      padding: 3px 12px;
-      background: var(--sage-bg);
-      border: 1px solid var(--sage-bd);
-      border-radius: 20px;
-      margin-bottom: 16px;
+    @media (max-width: 900px) {
+      .planet { display: none; }
     }
 
-    .avail-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sage); }
 
     .hero-role {
       font-size: 16px;
@@ -405,7 +390,7 @@
 
     .gallery { position: relative; height: 210px; overflow: hidden; background: var(--bg3); }
 
-    .gallery img {
+    .gallery img, .gallery .slide {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -415,7 +400,9 @@
       transition: opacity 0.5s ease;
     }
 
-    .gallery img.active { opacity: 1; }
+    .gallery img.active, .gallery .slide.active { opacity: 1; }
+
+    .gallery canvas { width: 100%; height: 100%; display: block; }
 
     .gallery-overlay {
       position: absolute;
@@ -468,10 +455,6 @@
     }
 
     .clip-frame video { height: 100%; width: auto; max-width: 80%; display: block; }
-
-    .boids-frame { height: 210px; background: var(--bg3); position: relative; overflow: hidden; }
-
-    .boids-frame canvas { width: 100%; height: 100%; display: block; }
 
     .card-body { padding: 20px 24px 24px; }
 
@@ -529,6 +512,72 @@
       white-space: nowrap;
     }
 
+
+    /* Decorations around project buttons */
+    .link-deco { position: relative; display: inline-flex; align-items: center; }
+
+    .robot-wrap .robot {
+      position: absolute;
+      width: 14px;
+      height: 16px;
+      top: -15px;
+      left: 0;
+      animation: patrol 7s ease-in-out infinite;
+    }
+
+    .robot .leg { transform-box: fill-box; transform-origin: top center; animation: step 0.5s ease-in-out infinite alternate; }
+
+    .robot .leg.r { animation-delay: 0.25s; }
+
+    @keyframes patrol {
+      0%   { left: 2px; transform: scaleX(1); }
+      45%  { left: calc(100% - 16px); transform: scaleX(1); }
+      50%  { left: calc(100% - 16px); transform: scaleX(-1); }
+      95%  { left: 2px; transform: scaleX(-1); }
+      100% { left: 2px; transform: scaleX(1); }
+    }
+
+    @keyframes step { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+
+    .mini-cards { position: relative; width: 26px; height: 20px; margin-right: 8px; }
+
+    .mc {
+      position: absolute;
+      left: 7px;
+      top: 1px;
+      width: 12px;
+      height: 17px;
+      border-radius: 2px;
+      background: var(--bg3);
+      border: 1px solid var(--sage);
+      transform-origin: 50% 100%;
+      animation: fan 3.2s ease-in-out infinite;
+    }
+
+    .mc::after {
+      content: '';
+      position: absolute;
+      inset: 3px;
+      border-radius: 1px;
+      background: var(--sage-bg);
+      border: 1px solid var(--sage-bd);
+    }
+
+    .mc.c1 { --r: -22deg; }
+    .mc.c2 { --r: 0deg; z-index: 1; }
+    .mc.c3 { --r: 22deg; z-index: 2; }
+
+    @keyframes fan {
+      0%, 15%   { transform: rotate(0deg); }
+      40%, 75%  { transform: rotate(var(--r)); }
+      100%      { transform: rotate(0deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .robot-wrap .robot, .robot .leg, .mc { animation: none; }
+      .mc.c1, .mc.c3 { transform: rotate(var(--r)); }
+    }
+
     /* Skills */
     .skills-grid {
       display: grid;
@@ -579,7 +628,6 @@
 
     @media (max-width: 700px) {
       section { padding: 60px 0; }
-      .planet { width: 340px; height: 340px; right: -150px; top: 120px; transform: none; opacity: 0.22; }
       .card-header { flex-wrap: wrap; }
     }
 
@@ -630,11 +678,10 @@
 
 <!-- Hero -->
 <section id="home">
-  <img class="planet" src="Images/jupiter.webp" alt="" aria-hidden="true" width="760" height="760">
+  <img class="planet" src="Images/jupiter.webp" alt="" aria-hidden="true" width="300" height="300">
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="avail"><span class="avail-dot"></span><span data-i18n="avail">Open to new opportunities</span></div>
         <div class="hero-role" data-i18n="hero_role">C++ Software Engineer · Real-Time Systems · Simulation</div>
         <h1>Alessandro<br>Sciarra</h1>
         <p class="hero-bio" data-i18n="hero_bio">I build real-time software in C++: <strong>gameplay and vehicle systems, physics interactions, AI control and performance work</strong> across multiple platforms. Since 2021 I have worked at Milestone, a racing game studio in Milan, on titles released for PC, PlayStation 5 and Xbox Series X|S. I am open to C++ roles both inside and outside the games industry.</p>
@@ -915,14 +962,17 @@
 
     <div class="project-grid">
       <article class="project-card">
-        <div class="boids-frame"><canvas id="boids" aria-label="Flocking simulation"></canvas></div>
+        <div class="gallery" data-gallery data-interval="7000">
+          <div class="slide active"><canvas id="boids" aria-label="Flocking simulation"></canvas></div>
+          <img src="Images/boids-1.jpg" alt="Boid Boss Fight: flock of fish around the player in Unreal Engine" loading="lazy">
+        </div>
         <div class="card-body">
           <div class="card-header">
             <div>
               <div class="card-title">Boid Boss Fight</div>
               <div class="card-sub" data-i18n="bd_sub">Personal project · In development · Unreal Engine, C++</div>
             </div>
-            <a href="https://github.com/prophet98/BoidBossFightProject" target="_blank" rel="noopener noreferrer" class="card-link" data-i18n="bd_link">Source code</a>
+            <a href="mailto:ale.sciarra@gmail.com?subject=Boid%20Boss%20Fight%20source%20code" class="card-link" data-i18n="source">Source on request</a>
           </div>
           <div class="tech-row"><span class="tech-tag">C++</span><span class="tech-tag">Unreal Engine</span><span class="tech-tag">Flocking</span><span class="tech-tag">Steering</span><span class="tech-tag">AI</span></div>
           <p class="card-desc" data-i18n="bd_d">A boss fight built around a <strong>flock of boids</strong>, written in C++ in Unreal Engine. The flocking system is the first building block, and the boss encounter is being built on top of it.</p>
@@ -946,7 +996,10 @@
               <div class="card-title">POKOL: SpaceAdventures</div>
               <div class="card-sub" data-i18n="pk_sub">Master's project · University of Verona · 2021</div>
             </div>
-            <a href="mailto:ale.sciarra@gmail.com?subject=POKOL%20source%20code" class="card-link" data-i18n="source">Source on request</a>
+            <span class="link-deco robot-wrap">
+              <svg class="robot" viewBox="0 0 16 18" aria-hidden="true"><line x1="8" y1="0.8" x2="8" y2="3" stroke="#9cb59e" stroke-width="1"/><circle cx="8" cy="0.9" r="0.9" fill="#b9ccba"/><rect x="3" y="3" width="10" height="7" rx="2" fill="#9cb59e"/><circle cx="6" cy="6.5" r="1.1" fill="#0f1110"/><circle cx="10" cy="6.5" r="1.1" fill="#0f1110"/><rect x="4.5" y="10.6" width="7" height="4.4" rx="1" fill="#87a08a"/><rect class="leg l" x="5" y="15" width="1.8" height="2.6" rx="0.6" fill="#9cb59e"/><rect class="leg r" x="9.2" y="15" width="1.8" height="2.6" rx="0.6" fill="#9cb59e"/></svg>
+              <a href="mailto:ale.sciarra@gmail.com?subject=POKOL%20source%20code" class="card-link" data-i18n="source">Source on request</a>
+            </span>
           </div>
           <div class="tech-row"><span class="tech-tag">C++</span><span class="tech-tag">Unreal Engine</span><span class="tech-tag">Behaviour Trees</span><span class="tech-tag">State Machines</span></div>
           <p class="card-desc" data-i18n="pk_d">Top-down shooter in Unreal Engine and C++, with a <strong>multi-phase boss system</strong>, behavioural AI agents, a runtime spawn system and a custom inventory.</p>
@@ -972,7 +1025,10 @@
               <div class="card-title">DrunkCard</div>
               <div class="card-sub" data-i18n="dc_sub">University project · Mobile AR · 2020</div>
             </div>
-            <a href="https://gitlab.com/jupiter98/hci_project2020_ar" target="_blank" rel="noopener noreferrer" class="card-link">GitLab</a>
+            <span class="link-deco cards-wrap">
+              <span class="mini-cards" aria-hidden="true"><span class="mc c1"></span><span class="mc c2"></span><span class="mc c3"></span></span>
+              <a href="https://gitlab.com/jupiter98/hci_project2020_ar" target="_blank" rel="noopener noreferrer" class="card-link">GitLab</a>
+            </span>
           </div>
           <div class="tech-row"><span class="tech-tag">C#</span><span class="tech-tag">Unity</span><span class="tech-tag">AR Foundation</span><span class="tech-tag">XR Toolkit</span><span class="tech-tag">LiDAR</span></div>
           <p class="card-desc" data-i18n="dc_d">Augmented reality card game for mobile, built with Unity and the XR Interaction Toolkit. Environments were captured with <strong>LiDAR scanning</strong> and optimised for real-time mobile rendering.</p>
@@ -1100,7 +1156,6 @@
       nav_projects: 'Progetti',
       nav_skills: 'Competenze',
       nav_contact: 'Contatti',
-      avail: 'Aperto a nuove opportunità',
       hero_role: 'Software Engineer C++ · Sistemi real-time · Simulazione',
       hero_bio: 'Sviluppo software real-time in C++: <strong>sistemi di gameplay e di guida, interazioni fisiche, controllo AI e ottimizzazione delle prestazioni</strong> su più piattaforme. Dal 2021 lavoro in Milestone, studio milanese specializzato in giochi di corse, su titoli usciti per PC, PlayStation 5 e Xbox Series X|S. Sono aperto a ruoli C++ sia nel settore videoludico sia al di fuori.',
       b_physics: 'Simulazione fisica',
@@ -1188,7 +1243,6 @@
       pp_title: 'Progetti personali',
       pp_intro: 'Progetti che sviluppo al di fuori del lavoro, da quello attualmente in corso ai progetti universitari.',
       bd_sub: 'Progetto personale · In sviluppo · Unreal Engine, C++',
-      bd_link: 'Codice sorgente',
       bd_d: 'Una boss fight costruita attorno a uno <strong>stormo di boid</strong>, scritta in C++ in Unreal Engine. Il sistema di flocking è il primo tassello, e lo scontro con il boss viene costruito sopra di esso.',
       bd1: 'Separazione, allineamento e coesione, ciascuno con il proprio campo visivo e la propria intensità',
       bd2: 'Evitamento degli ostacoli con line trace su un canale di collisione dedicato, lungo direzioni distribuite su una sfera con la spirale aurea',
@@ -1263,7 +1317,10 @@
       setInterval(() => {
         if (document.hidden) return;
         galleries.forEach(g => {
-          const imgs = g.querySelectorAll('img');
+          const every = Math.round((parseInt(g.dataset.interval, 10) || 3500) / 3500);
+          g._tick = (g._tick || 0) + 1;
+          if (g._tick % every) return;
+          const imgs = g.querySelectorAll('img, .slide');
           if (imgs.length <= 1) return;
           const cur = [...imgs].findIndex(i => i.classList.contains('active'));
           imgs[cur].classList.remove('active');
