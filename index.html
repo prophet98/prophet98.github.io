@@ -12,9 +12,27 @@
   <meta property="og:url" content="https://prophet98.github.io/">
   <meta property="og:title" content="Alessandro Sciarra | C++ Software Engineer">
   <meta property="og:description" content="C++ software engineer working on real-time systems, physics, AI control and performance.">
-  <meta property="og:image" content="https://prophet98.github.io/Images/Io.jpg">
-  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://prophet98.github.io/Images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1110'/%3E%3Ctext x='16' y='21.5' font-family='Georgia,serif' font-size='15' fill='%239cb59e' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+  <link rel="alternate" hreflang="en" href="https://prophet98.github.io/">
+  <link rel="alternate" hreflang="it" href="https://prophet98.github.io/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alessandro Sciarra",
+    "url": "https://prophet98.github.io/",
+    "jobTitle": "C++ Software Engineer",
+    "worksFor": { "@type": "Organization", "name": "Milestone S.r.l." },
+    "address": { "@type": "PostalAddress", "addressLocality": "Rome", "addressCountry": "IT" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Verona" },
+    "knowsAbout": ["C++", "Unreal Engine", "Real-time systems", "Physics simulation", "Game AI", "Multithreading"],
+    "sameAs": ["https://www.linkedin.com/in/alessandro-sciarra/"]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
@@ -157,33 +175,30 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 48px;
-      align-items: start;
-    }
+    #home { position: relative; overflow: hidden; }
 
-    .avatar-wrap { position: relative; }
+    .hero-grid { position: relative; z-index: 1; max-width: 680px; }
 
-    .avatar-wrap img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      border: 2px solid var(--border2);
-    }
-
-    .avatar-wrap::after {
-      content: '';
+    .planet {
       position: absolute;
-      inset: -5px;
-      border-radius: 50%;
-      border: 2px solid var(--sage);
+      z-index: 0;
+      width: 600px;
+      height: 600px;
+      right: max(-140px, calc((100vw - 1120px) / 2 - 120px));
+      top: 50%;
+      transform: translateY(-46%);
       opacity: 0.55;
+      filter: saturate(0.85);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 45%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 45%);
       pointer-events: none;
+      user-select: none;
     }
+
+    @media (max-width: 1000px) {
+      .planet { width: 440px; height: 440px; right: -170px; opacity: 0.3; }
+    }
+
 
     .avail {
       display: inline-flex;
@@ -453,6 +468,10 @@
 
     .clip-frame video { height: 100%; width: auto; max-width: 80%; display: block; }
 
+    .boids-frame { height: 210px; background: var(--bg3); position: relative; overflow: hidden; }
+
+    .boids-frame canvas { width: 100%; height: 100%; display: block; }
+
     .card-body { padding: 20px 24px 24px; }
 
     .card-header {
@@ -555,12 +574,11 @@
 
     footer p { font-size: 14px; color: var(--muted); }
 
+    footer p.credit { font-size: 12px; margin-top: 4px; opacity: 0.7; }
+
     @media (max-width: 700px) {
       section { padding: 60px 0; }
-      .hero-grid { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 30px; }
-      .avatar-wrap img { width: 140px; height: 140px; }
-      .hero-bio { text-align: left; }
-      .hero-cta, .badges { justify-content: center; }
+      .planet { width: 340px; height: 340px; right: -150px; top: 120px; transform: none; opacity: 0.22; }
       .card-header { flex-wrap: wrap; }
     }
 
@@ -593,9 +611,6 @@
       <a href="https://www.linkedin.com/in/alessandro-sciarra/" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="LinkedIn">
         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
-      <a href="https://github.com/prophet98" target="_blank" rel="noopener noreferrer" class="nav-icon" aria-label="GitHub">
-        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-      </a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" aria-pressed="true" title="English">
           <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukS"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="ukT"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#ukS)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukT)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
@@ -614,11 +629,9 @@
 
 <!-- Hero -->
 <section id="home">
+  <img class="planet" src="Images/jupiter.webp" alt="" aria-hidden="true" width="760" height="760">
   <div class="wrap">
     <div class="hero-grid">
-      <div class="avatar-wrap">
-        <img src="Images/Io.jpg" alt="Alessandro Sciarra" width="180" height="180">
-      </div>
       <div>
         <div class="avail"><span class="avail-dot"></span><span data-i18n="avail">Open to new opportunities</span></div>
         <div class="hero-role" data-i18n="hero_role">C++ Software Engineer · Real-Time Systems · Simulation</div>
@@ -647,7 +660,7 @@
 <section id="profile" class="alt">
   <div class="wrap">
     <h2 data-i18n="pr_title">Profile</h2>
-    <p class="intro" data-i18n="pr_intro">Games are a demanding real-time environment. Every frame has a fixed time budget, physics and AI run in parallel, and the same code ships on several hardware platforms. This experience carries over to any C++ project.</p>
+    <p class="intro" data-i18n="pr_intro">In games every frame has to finish in a few milliseconds, while physics and AI run in parallel and the same code has to work on PC and consoles. Working within those limits every day taught me to write C++ with performance and concurrency in mind, a habit that is just as useful outside games.</p>
 
     <div class="eng-grid">
       <div class="eng-card">
@@ -897,9 +910,31 @@
 <section id="personal-projects" class="bg-plain">
   <div class="wrap">
     <h2 data-i18n="pp_title">Personal projects</h2>
-    <p class="intro" data-i18n="pp_intro">University projects where I worked on every part of the game, from input to AI.</p>
+    <p class="intro" data-i18n="pp_intro">Projects I work on outside my job, from the current one in development to my university work.</p>
 
     <div class="project-grid">
+      <article class="project-card">
+        <div class="boids-frame"><canvas id="boids" aria-label="Flocking simulation"></canvas></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Boid Boss Fight</div>
+              <div class="card-sub" data-i18n="bd_sub">Personal project · In development · Unreal Engine, C++</div>
+            </div>
+            <a href="https://github.com/prophet98/BoidBossFightProject" target="_blank" rel="noopener noreferrer" class="card-link" data-i18n="bd_link">Source code</a>
+          </div>
+          <div class="tech-row"><span class="tech-tag">C++</span><span class="tech-tag">Unreal Engine</span><span class="tech-tag">Flocking</span><span class="tech-tag">Steering</span><span class="tech-tag">AI</span></div>
+          <p class="card-desc" data-i18n="bd_d">A boss fight built around a <strong>flock of boids</strong>, written in C++ in Unreal Engine. The flocking system is the first building block, and the boss encounter is being built on top of it.</p>
+          <div class="detail-title" data-i18n="details">Technical details</div>
+          <ul class="points">
+            <li data-i18n="bd1">Separation, alignment and cohesion, each with its own field of view and strength</li>
+            <li data-i18n="bd2">Obstacle avoidance with line traces on a dedicated collision channel, along sensor directions spread on a sphere with the golden spiral</li>
+            <li data-i18n="bd3">Target volumes that apply steering forces to the flock</li>
+            <li data-i18n="bd4">Point, volume and cage spawners, and a flock manager that exposes every parameter to Blueprints</li>
+          </ul>
+        </div>
+      </article>
+
       <article class="project-card">
         <div class="video-frame">
           <iframe src="https://www.youtube-nocookie.com/embed/lpDQWNgvNis" title="POKOL: SpaceAdventures" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1046,7 +1081,6 @@
     <div class="contact-links">
       <a href="mailto:ale.sciarra@gmail.com" class="btn btn-primary">ale.sciarra@gmail.com</a>
       <a href="https://www.linkedin.com/in/alessandro-sciarra/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://github.com/prophet98" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub</a>
     </div>
   </div>
 </section>
@@ -1054,7 +1088,7 @@
 </main>
 
 <footer>
-  <div class="wrap"><p>© 2026 Alessandro Sciarra</p></div>
+  <div class="wrap"><p>© 2026 Alessandro Sciarra</p><p class="credit" data-i18n="credit">Jupiter image: NASA, ESA, Hubble. Composition by Judy Schmidt.</p></div>
 </footer>
 
 <script>
@@ -1077,7 +1111,7 @@
       btn_exp: 'Vedi esperienza',
       btn_latest: 'Ultimo titolo uscito',
       pr_title: 'Profilo',
-      pr_intro: 'I videogiochi sono un ambiente real-time molto esigente. Ogni frame ha un budget di tempo fisso, fisica e AI girano in parallelo e lo stesso codice viene rilasciato su più piattaforme hardware. Porto questa esperienza in qualunque progetto sviluppato in C++.',
+      pr_intro: 'Nei videogiochi ogni frame deve chiudersi in pochi millisecondi, mentre fisica e AI girano in parallelo e lo stesso codice deve funzionare su PC e console. Lavorare ogni giorno con questi vincoli mi ha abituato a scrivere C++ attento a prestazioni e concorrenza, ed è un\'abitudine che porto con me anche fuori dai videogiochi.',
       s1_t: 'Concorrenza',
       s1_d: 'Calcoli asincroni con sincronizzazione tramite mutex e carichi di lavoro AI multithread eseguiti in parallelo al loop principale.',
       s2_t: 'Prestazioni',
@@ -1099,25 +1133,25 @@
       xp_intro: 'Da stagista a Gameplay Programmer in Milestone, uno degli sviluppatori di giochi di corse con la storia più lunga al mondo.',
       ms_place: 'Milano',
       d_gp: 'apr 2024 - oggi',
-      gp1: 'Lavoro su <strong>due titoli Unreal Engine 5 non ancora annunciati, basati su licenze importanti</strong>: una proprietà <strong>Hasbro</strong> e un gioco <strong>open world</strong>.',
-      gp2: 'Progetto sistemi di controllo AI e interazioni fisiche basate su Chaos, insieme al team R&amp;D su controllo dei veicoli e gestione dell\'input.',
-      gp3: 'Ho sviluppato l\'<strong>Heat System, le abilità</strong> e le meccaniche di interazione tra veicoli di Screamer, dalla pre-produzione al lancio di marzo 2026.',
-      gp4: 'Ho contribuito all\'<strong>AI di guida neurale</strong> di Screamer e lavorato con i designer al suo addestramento.',
-      gp5: 'Ho implementato il <strong>calcolo asincrono dei tempi di gara con sincronizzazione tramite mutex</strong>.',
-      gp6: 'Ho modificato le callback di collisione di Chaos per migliorare reattività e prestazioni del gameplay basato sulle collisioni.',
-      gp7: 'Ho risolto crash nel sistema fisico e durante i cambi di livello, e analizzato colli di bottiglia CPU/GPU e problemi specifici di piattaforma su PC, PS5, Xbox Series X|S e Nintendo Switch.',
-      gp8: 'Ho realizzato utility di gameplay e strumenti di debug per testing e iterazione.',
+      gp1: 'Al lavoro su <strong>due titoli Unreal Engine 5 non ancora annunciati, basati su licenze importanti</strong>: una proprietà <strong>Hasbro</strong> e un gioco <strong>open world</strong>.',
+      gp2: 'Progettazione di sistemi di controllo AI e interazioni fisiche basate su Chaos, insieme al team R&amp;D su controllo dei veicoli e gestione dell\'input.',
+      gp3: 'Sviluppato l\'<strong>Heat System, le abilità</strong> e le meccaniche di interazione tra veicoli di Screamer, dalla pre-produzione al lancio di marzo 2026.',
+      gp4: 'Contribuito all\'<strong>AI di guida neurale</strong> di Screamer e lavorato con i designer al suo addestramento.',
+      gp5: 'Implementato il <strong>calcolo asincrono dei tempi di gara con sincronizzazione tramite mutex</strong>.',
+      gp6: 'Modificate le callback di collisione di Chaos per migliorare reattività e prestazioni del gameplay basato sulle collisioni.',
+      gp7: 'Risolti crash nel sistema fisico e durante i cambi di livello, analizzati colli di bottiglia CPU/GPU e problemi specifici di piattaforma su PC, PS5, Xbox Series X|S e Nintendo Switch.',
+      gp8: 'Realizzati utility di gameplay e strumenti di debug per testing e iterazione.',
       d_jr: 'giu 2022 - apr 2024',
       jr1: 'Gameplay di RIDE 5: logiche di collisione e fisica personalizzate, comportamento dell\'AI, telecamere e supporto post-lancio.',
-      jr2: 'Ho implementato <strong>carichi di lavoro AI multithread</strong>, telemetria e UI in tempo reale e l\'integrazione del meteo dinamico nel gameplay.',
-      jr3: 'Ho coordinato piccoli flussi di lavoro di gameplay, il triage dei bug e il rilascio di correzioni e funzionalità post-lancio.',
+      jr2: 'Implementati <strong>carichi di lavoro AI multithread</strong>, telemetria e UI in tempo reale e l\'integrazione del meteo dinamico nel gameplay.',
+      jr3: 'Coordinati piccoli flussi di lavoro di gameplay, il triage dei bug e il rilascio di correzioni e funzionalità post-lancio.',
       d_in: 'dic 2021 - mag 2022',
       in1: 'Correzione di bug e supporto allo sviluppo di funzionalità in una grande codebase di produzione, su Hot Wheels Unleashed e RIDE 5.',
-      ms_also: '<strong>Ho contribuito anche a:</strong> Hot Wheels Unleashed 2, MotoGP 25, MotoGP 26, Monster Jam Showdown.',
+      ms_also: '<strong>Altri titoli:</strong> Hot Wheels Unleashed 2, MotoGP 25, MotoGP 26, Monster Jam Showdown.',
       sv_place: 'Roma',
       d_sv: 'ago 2019 - gen 2022',
-      sv1: 'Ho esteso in C# i plugin Fungus e Spine per Unity, migliorando il flusso di lavoro dei designer e le prestazioni delle animazioni 2D di Dark Renaissance.',
-      sv2: 'Ho lavorato in un team distribuito tra Italia e Giappone, su fusi orari diversi.',
+      sv1: 'Estesi in C# i plugin Fungus e Spine per Unity, migliorando il flusso di lavoro dei designer e le prestazioni delle animazioni 2D di Dark Renaissance.',
+      sv2: 'Lavoro in un team distribuito tra Italia e Giappone, su fusi orari diversi.',
       pj_title: 'Progetti professionali',
       pj_intro: 'Titoli usciti e in sviluppo, con il lavoro che ho svolto su ciascuno.',
       nda_t1: 'Licenza Hasbro',
@@ -1149,9 +1183,17 @@
       dr1: 'Plugin Fungus esteso con strumenti C# per i designer',
       dr2: 'Pipeline di animazione 2D di Spine ottimizzata per migliorare i tempi di frame',
       dr3: 'Lavoro quotidiano con i team di programmazione, arte e narrativa',
-      also: 'Ho contribuito anche a',
+      also: 'Altri titoli',
       pp_title: 'Progetti personali',
-      pp_intro: 'Progetti universitari in cui ho lavorato su ogni parte del gioco, dall\'input all\'AI.',
+      pp_intro: 'Progetti che sviluppo al di fuori del lavoro, da quello attualmente in corso ai progetti universitari.',
+      bd_sub: 'Progetto personale · In sviluppo · Unreal Engine, C++',
+      bd_link: 'Codice sorgente',
+      bd_d: 'Una boss fight costruita attorno a uno <strong>stormo di boid</strong>, scritta in C++ in Unreal Engine. Il sistema di flocking è il primo tassello, e lo scontro con il boss viene costruito sopra di esso.',
+      bd1: 'Separazione, allineamento e coesione, ciascuno con il proprio campo visivo e la propria intensità',
+      bd2: 'Evitamento degli ostacoli con line trace su un canale di collisione dedicato, lungo direzioni distribuite su una sfera con la spirale aurea',
+      bd3: 'Volumi bersaglio che applicano forze di steering allo stormo',
+      bd4: 'Spawner a punto, a volume e a gabbia, e un flock manager che espone tutti i parametri ai Blueprint',
+      credit: 'Immagine di Giove: NASA, ESA, Hubble. Composizione di Judy Schmidt.',
       pk_sub: 'Progetto di laurea magistrale · Università di Verona · 2021',
       source: 'Sorgente su richiesta',
       pk_d: 'Sparatutto top-down in Unreal Engine e C++, con un <strong>sistema di boss a più fasi</strong>, agenti AI comportamentali, un sistema di spawn a runtime e un inventario personalizzato.',
@@ -1228,6 +1270,93 @@
         });
       }, 3500);
     }
+  })();
+</script>
+
+<script>
+  (function () {
+    const canvas = document.getElementById('boids');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let w = 0, h = 0, dpr = 1, running = false, raf = 0, inView = true;
+    const boids = [];
+    const N = 70, VIEW = 46, SEP = 18, MAXS = 1.9, MINS = 0.9;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function init() {
+      boids.length = 0;
+      for (let i = 0; i < N; i++) {
+        const a = Math.random() * Math.PI * 2;
+        boids.push({ x: Math.random() * w, y: Math.random() * h, vx: Math.cos(a) * 1.4, vy: Math.sin(a) * 1.4 });
+      }
+    }
+
+    function step() {
+      for (const b of boids) {
+        let ax = 0, ay = 0, cx = 0, cy = 0, sx = 0, sy = 0, n = 0;
+        for (const o of boids) {
+          if (o === b) continue;
+          let dx = o.x - b.x, dy = o.y - b.y;
+          if (dx > w / 2) dx -= w; else if (dx < -w / 2) dx += w;
+          if (dy > h / 2) dy -= h; else if (dy < -h / 2) dy += h;
+          const d = Math.hypot(dx, dy);
+          if (d < VIEW) {
+            ax += o.vx; ay += o.vy; cx += dx; cy += dy; n++;
+            if (d < SEP && d > 0) { sx -= dx / d * (SEP - d); sy -= dy / d * (SEP - d); }
+          }
+        }
+        if (n) {
+          b.vx += (ax / n - b.vx) * 0.05 + (cx / n) * 0.0016 + sx * 0.012;
+          b.vy += (ay / n - b.vy) * 0.05 + (cy / n) * 0.0016 + sy * 0.012;
+        }
+        const s = Math.hypot(b.vx, b.vy) || 1;
+        const t = Math.min(MAXS, Math.max(MINS, s));
+        b.vx = b.vx / s * t; b.vy = b.vy / s * t;
+        b.x = (b.x + b.vx + w) % w; b.y = (b.y + b.vy + h) % h;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = '#9cb59e';
+      for (const b of boids) {
+        const a = Math.atan2(b.vy, b.vx);
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(a);
+        ctx.beginPath();
+        ctx.moveTo(6, 0); ctx.lineTo(-4, 3); ctx.lineTo(-2, 0); ctx.lineTo(-4, -3);
+        ctx.closePath();
+        ctx.globalAlpha = 0.85;
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function loop() {
+      step(); draw();
+      raf = requestAnimationFrame(loop);
+    }
+
+    function start() { if (!running && !reduce) { running = true; loop(); } }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+
+    resize(); init();
+    for (let i = 0; i < 120; i++) step();
+    draw();
+
+    window.addEventListener('resize', () => { const ow = w, oh = h; resize(); for (const b of boids) { b.x *= w / ow; b.y *= h / oh; } draw(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(e => { inView = e[0].isIntersecting; inView ? start() : stop(); }).observe(canvas);
+    } else { start(); }
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); else if (inView) start(); });
   })();
 </script>
 
